@@ -1,0 +1,6 @@
+framework module Pods_TaxSystem {
+  umbrella header "Pods-TaxSystem-umbrella.h"
+
+  export *
+  module * { export * }
+}
