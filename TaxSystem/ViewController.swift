@@ -41,12 +41,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     var isRetrait = Bool()
     var isVATPayer = Bool()
     var group = Int()
-    
     var emptyCheckBox = UIImage(named: "images")
     var checkBox = UIImage(named: "checked-checkbox-xxl")
     var isPicked = Bool()
     var isVATPicked = Bool()
-    
     var ref: DatabaseReference?
     
     override func viewDidLoad() {
@@ -58,7 +56,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         outcomeTextField.delegate = self
         
         ref = Database.database().reference()
-        
+
         self.ref?.child("socialMinimum").observe(.value, with: { (snapshot) in
             if let value = snapshot.value as? Float {
                 DispatchQueue.main.async() {

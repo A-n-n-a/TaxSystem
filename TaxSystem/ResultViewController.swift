@@ -20,11 +20,8 @@ class ResultViewController: UIViewController, GADBannerViewDelegate {
     var outcome = Float()
     var isRetrait = Bool()
     var isVATPayer = Bool()
-    
-    
     var socialMinimum = Float()
     var minimumSalary = Float()
-    
     var ESVRate = Float()
     var militaryRate = Float()
     var NDFLRate = Float()
@@ -33,7 +30,6 @@ class ResultViewController: UIViewController, GADBannerViewDelegate {
     var ENNotVATRate = Float()
     var ENVATRate = Float()
     var maximum = Float()
-    
     var taxBase = Float()
     var ESVCommon = Float()
     var ESVSimple = Float()
@@ -44,55 +40,34 @@ class ResultViewController: UIViewController, GADBannerViewDelegate {
     var NDFL = Float()
     var militaryCommon = Float()
     var militarySimple = Float()
-    
     var group = Int()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setAdBanner(myBanner: myBanner, vc: self, advertisementID: secondBannerID)
-//        // ad banner
-//        let request = GADRequest()
-//        request.testDevices = [kGADSimulatorID]
-//        myBanner.adSize = kGADAdSizeSmartBannerPortrait
-//        myBanner.adUnitID = secondBannerID
-//        myBanner.rootViewController = self
-//        myBanner.delegate = self
-//        myBanner.load(request)
         
         self.navigationController!.navigationBar.topItem!.title = "Назад"
         self.navigationController!.navigationBar.tintColor = UIColor.white
         
-        maxESVBase = maximum * socialMinimum
         taxBase = income - outcome
-        if isRetrait == true {
-            ESVCommon = 0
-            ESVSimple = 0
-        } else {
-            ESVCommon = taxBase * ESVRate
-            ESVSimple = income * ESVRate
-            
+        ESVCommon = isRetrait ? 0 : (taxBase * ESVRate)
+        ESVSimple = isRetrait ? 0 : (income * ESVRate)
+        
+        if isRetrait == false {
+            //check max/min ESV
+            maxESVBase = maximum * socialMinimum
             minESV = minimumSalary * ESVRate
             maxESV = maxESVBase * ESVRate
             
-            if ESVCommon < minESV{
-                ESVCommon = minESV
-            }
-            if ESVCommon > maxESV {
-                ESVCommon = maxESV
-            }
-            if ESVSimple < minESV {
-                ESVSimple = minESV
-            }
-            if ESVSimple > maxESV {
-                ESVSimple = maxESV
-            }
+            ESVCommon = ESVCommon < minESV ? minESV : ESVCommon
+            ESVCommon = ESVCommon > maxESV ? maxESV : ESVCommon
+            ESVSimple = ESVSimple < minESV ? minESV : ESVSimple
+            ESVSimple = ESVSimple > maxESV ? maxESV : ESVSimple
+        }
         
-        }
         NDFL = (taxBase - ESVCommon) * NDFLRate
-        if NDFL < 0 {
-            NDFL = 0
-        }
+        NDFL = NDFL < 0 ? 0 : NDFL
         
         switch group {
         case 1:
@@ -100,29 +75,17 @@ class ResultViewController: UIViewController, GADBannerViewDelegate {
         case 2:
             EN = secondGroupRate * minimumSalary
         case 3:
-            if isVATPayer == true {
-                EN = ENVATRate * (income - ESVSimple)
-            } else {
-                EN = ENNotVATRate * (income - ESVSimple)
-            }
+            EN = isVATPayer ? (ENVATRate * (income - ESVSimple)) : (ENNotVATRate * (income - ESVSimple))
         default: break
         }
-        if EN < 0 {
-            EN = 0
-        }
+        EN = EN < 0 ? 0 : EN
+
         militaryCommon = (taxBase - ESVCommon) * militaryRate
-        if militaryCommon < 0 {
-            militaryCommon = 0
-        }
+        militaryCommon = militaryCommon < 0 ? 0 : militaryCommon
         militarySimple = 0
              
         
         commonSystemLabel.text = "Единый социальный взнос \n(ЕСВ): \(ESVCommon) грн.\nНалог на доходы физических лиц\n(НДФЛ): \(NDFL) грн.\nВоенный сбор \(militaryCommon) грн."
         simplifiedSystemLabel.text = "Единый социальный взнос \n(ЕСВ): \(ESVSimple) грн.\nЕдиный налог: \(EN) грн.\nВоенный сбор \(militarySimple) грн."
-
-        
     }
-
-   
-
 }
