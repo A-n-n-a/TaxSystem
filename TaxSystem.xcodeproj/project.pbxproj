@@ -13,7 +13,8 @@
 		953BCCD21F1C87C500377512 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 953BCCD11F1C87C500377512 /* Assets.xcassets */; };
 		953BCCD51F1C87C500377512 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 953BCCD31F1C87C500377512 /* LaunchScreen.storyboard */; };
 		953BCCDD1F1C8C6500377512 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953BCCDC1F1C8C6500377512 /* ResultViewController.swift */; };
-		95B7D9141F588BD600ED44F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95B7D9131F588BD600ED44F4 /* GoogleService-Info.plist */; };
+		95B7D9181F5930B700ED44F4 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7D9171F5930B700ED44F4 /* File.swift */; };
+		95B7D91A1F59353200ED44F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95B7D9191F59353200ED44F4 /* GoogleService-Info.plist */; };
 		CF775A075DE4F0955B2F3462 /* Pods_TaxSystem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3263C8E219857C181ACAD7C /* Pods_TaxSystem.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +27,8 @@
 		953BCCD41F1C87C500377512 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		953BCCD61F1C87C500377512 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		953BCCDC1F1C8C6500377512 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		95B7D9131F588BD600ED44F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		95B7D9171F5930B700ED44F4 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		95B7D9191F59353200ED44F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B257CC8DE932499963645D6B /* Pods-TaxSystem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxSystem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaxSystem/Pods-TaxSystem.debug.xcconfig"; sourceTree = "<group>"; };
 		B3263C8E219857C181ACAD7C /* Pods_TaxSystem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaxSystem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5888C493E6C4A7B4142C17 /* Pods-TaxSystem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaxSystem.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaxSystem/Pods-TaxSystem.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,12 +77,13 @@
 			children = (
 				953BCCCA1F1C87C500377512 /* AppDelegate.swift */,
 				953BCCCC1F1C87C500377512 /* ViewController.swift */,
+				95B7D9171F5930B700ED44F4 /* File.swift */,
 				953BCCDC1F1C8C6500377512 /* ResultViewController.swift */,
 				953BCCCE1F1C87C500377512 /* Main.storyboard */,
 				953BCCD11F1C87C500377512 /* Assets.xcassets */,
 				953BCCD31F1C87C500377512 /* LaunchScreen.storyboard */,
-				95B7D9131F588BD600ED44F4 /* GoogleService-Info.plist */,
 				953BCCD61F1C87C500377512 /* Info.plist */,
+				95B7D9191F59353200ED44F4 /* GoogleService-Info.plist */,
 			);
 			path = TaxSystem;
 			sourceTree = "<group>";
@@ -158,9 +161,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				953BCCD51F1C87C500377512 /* LaunchScreen.storyboard in Resources */,
+				95B7D91A1F59353200ED44F4 /* GoogleService-Info.plist in Resources */,
 				953BCCD21F1C87C500377512 /* Assets.xcassets in Resources */,
 				953BCCD01F1C87C500377512 /* Main.storyboard in Resources */,
-				95B7D9141F588BD600ED44F4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				953BCCCD1F1C87C500377512 /* ViewController.swift in Sources */,
+				95B7D9181F5930B700ED44F4 /* File.swift in Sources */,
 				953BCCCB1F1C87C500377512 /* AppDelegate.swift in Sources */,
 				953BCCDD1F1C8C6500377512 /* ResultViewController.swift in Sources */,
 			);

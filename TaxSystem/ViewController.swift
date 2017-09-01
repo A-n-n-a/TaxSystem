@@ -11,6 +11,7 @@ import FirebaseDatabase
 import GoogleMobileAds
 
 let advertisementID = "ca-app-pub-4375494746414239/9066271549"
+let secondBannerID = "ca-app-pub-4375494746414239/1494158424"
 
 class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, GADBannerViewDelegate {
     
@@ -51,13 +52,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // ad banner
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        myBanner.adUnitID = advertisementID
-        myBanner.rootViewController = self
-        myBanner.delegate = self
-        myBanner.load(request)
+        setAdBanner(myBanner: myBanner, vc: self, advertisementID: advertisementID)
         
         profitTextField.delegate = self
         outcomeTextField.delegate = self

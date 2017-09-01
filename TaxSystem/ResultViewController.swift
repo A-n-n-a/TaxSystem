@@ -50,14 +50,15 @@ class ResultViewController: UIViewController, GADBannerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // ad banner
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        myBanner.adSize = kGADAdSizeSmartBannerPortrait
-        myBanner.adUnitID = advertisementID
-        myBanner.rootViewController = self
-        myBanner.delegate = self
-        myBanner.load(request)
+        setAdBanner(myBanner: myBanner, vc: self, advertisementID: secondBannerID)
+//        // ad banner
+//        let request = GADRequest()
+//        request.testDevices = [kGADSimulatorID]
+//        myBanner.adSize = kGADAdSizeSmartBannerPortrait
+//        myBanner.adUnitID = secondBannerID
+//        myBanner.rootViewController = self
+//        myBanner.delegate = self
+//        myBanner.load(request)
         
         self.navigationController!.navigationBar.topItem!.title = "Назад"
         self.navigationController!.navigationBar.tintColor = UIColor.white
