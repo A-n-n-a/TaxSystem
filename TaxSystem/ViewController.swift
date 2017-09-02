@@ -178,27 +178,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     }
 
     @IBAction func checkBoxButton(_ sender: UIButton) {
-        if isPicked {
-            checkButton.setImage(emptyCheckBox, for: .normal)
-            isRetrait = true
-            isPicked = false
-        } else {
-            checkButton.setImage(checkBox, for: .normal)
-            isRetrait = false
-            isPicked = true
-        }
+        isPicked = !isPicked
+        checkBoxHandle(button: checkButton, condition: isRetrait)
+        isRetrait = isPicked
     }
     
     @IBAction func checkVATStatus(_ sender: Any) {
-        if isVATPicked {
-            checkVAT.setImage(checkBox, for: .normal)
-            isVATPayer = true
-            isVATPicked = false
-        } else {
-            checkVAT.setImage(emptyCheckBox, for: .normal)
-            isVATPayer = false
-            isVATPicked = true
-        }
+        isVATPicked = !isVATPicked
+        checkBoxHandle(button: checkVAT, condition: isVATPayer)
+        isVATPayer = isVATPicked
+    }
+    
+    func checkBoxHandle(button: UIButton, condition: Bool) {
+        let image = condition ? emptyCheckBox : checkBox
+        button.setImage(image, for: .normal)
     }
     
 
