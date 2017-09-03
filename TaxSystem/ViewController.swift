@@ -22,6 +22,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     @IBOutlet weak var groupPicker: UIPickerView!
     @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var checkVAT: UIButton!
+    @IBOutlet weak var bannerWidth: NSLayoutConstraint!
+    @IBOutlet weak var bannerHeight: NSLayoutConstraint!
     
     var socialMinimum = Float()
     var minimumSalary = Float()
@@ -56,6 +58,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         outcomeTextField.delegate = self
         
         ref = Database.database().reference()
+        
+        if UIDevice.current.model == "iPad" {
+            bannerWidth.constant = 728
+            bannerHeight.constant = 90
+        }
 
         self.ref?.child("socialMinimum").observe(.value, with: { (snapshot) in
             if let value = snapshot.value as? Float {

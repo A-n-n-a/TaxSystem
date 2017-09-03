@@ -15,6 +15,8 @@ class ResultViewController: UIViewController, GADBannerViewDelegate {
     @IBOutlet weak var commonSystemLabel: UILabel!
     @IBOutlet weak var simplifiedSystemLabel: UILabel!
     @IBOutlet weak var myBanner: GADBannerView!
+    @IBOutlet weak var bannerWidth: NSLayoutConstraint!
+    @IBOutlet weak var bannerHeight: NSLayoutConstraint!
     
     var income = Float()
     var outcome = Float()
@@ -49,6 +51,11 @@ class ResultViewController: UIViewController, GADBannerViewDelegate {
         
         self.navigationController!.navigationBar.topItem!.title = "Назад"
         self.navigationController!.navigationBar.tintColor = UIColor.white
+        
+        if UIDevice.current.model == "iPad" {
+            bannerWidth.constant = 728
+            bannerHeight.constant = 90
+        }
         
         taxBase = income - outcome
         ESVCommon = isRetrait ? 0 : (taxBase * ESVRate)
