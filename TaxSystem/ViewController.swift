@@ -171,6 +171,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     override func viewWillAppear(_ animated: Bool) {
         groupPicker.selectRow(1, inComponent: 0, animated: true)
         group = 2
+        navigationItem.title = "Налоговый калькулятор"
     }
     
     @IBAction func calculation(_ sender: UIButton) {
@@ -235,5 +236,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         textField.resignFirstResponder()
         return true
     }
+    
 }
 
